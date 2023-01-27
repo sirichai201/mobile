@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text('ELevatedButton'),
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.red,
-              backgroundColor: Colors.yellow,
+              backgroundColor: Color.fromARGB(255, 79, 174, 76),
               fixedSize: Size(210, 40),
               textStyle: TextStyle(fontSize: 20),
             ),
