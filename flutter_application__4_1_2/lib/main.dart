@@ -41,17 +41,25 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('เลือกเมนูเครื่องดื่ม sirichai'),
       ),
-      body: ListView.builder(
-        itemCount: menu.length,
-        itemBuilder: (context, index) {
-          CafeMenu drink = menu[index];
-          return ListTile(
-            leading: Image.asset(drink.img),
-            title: Text(drink.name, style: TextStyle(fontSize: 30)),
-            subtitle: Text('ราคา' + drink.price.toString() + 'บาท',
-                style: TextStyle(fontSize: 24)),
-          );
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Container(
+          decoration: BoxDecoration(
+              color: Colors.grey, borderRadius: BorderRadius.circular(20)),
+          height: 240,
+          child: ListView.builder(
+            itemCount: menu.length,
+            itemBuilder: (context, index) {
+              CafeMenu drink = menu[index];
+              return ListTile(
+                leading: Image.asset(drink.img),
+                title: Text(drink.name, style: TextStyle(fontSize: 30)),
+                subtitle: Text('ราคา' + drink.price.toString() + 'บาท',
+                    style: TextStyle(fontSize: 24)),
+              );
+            },
+          ),
+        ),
       ),
     );
   }
