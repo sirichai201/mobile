@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_application_4_widget2_2/neon_button.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -21,10 +22,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-enum ButtonState { int, loading, done }
+enum ButtonState { loading, done, init }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -32,30 +33,103 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool isLoading = false;
   bool isAnimating = true;
   ButtonState state = ButtonState.init;
   @override
   Widget build(BuildContext context) {
-    /*isLoading */
-    //?LoadingPage()
     final Width = MediaQuery.of(context).size.width;
     final isDone = state == ButtonState.done;
     bool isStretched = isAnimating || state == ButtonState.init;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        centerTitle: true,
-      ),
-      backgroundColor: Colors.black,
-      body: Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.all(32),
-          child:AnimatedContainer(
-            
-          )
+        appBar: AppBar(
+          title: Text(widget.title),
+          centerTitle: true,
+        ),
+        body: Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(32),
+            child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+                width: state == ButtonState.init ? Width : 70,
+                onEnd: () => setState(() => isAnimating = !isAnimating),
+                height: 70,
+                child: isStretched
+                    ? OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            side: const BorderSide(
+                                width: 2, color: Colors.indigo)),
+                        child: FittedBox(
+                          child: Text(
+                            'SUBMIT',
+                            style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.indigo,
+                                letterSpacing: 1.5,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        onPressed: () async {
+                          setState(() => state = ButtonState.loading);
+                          await Future.delayed(Duration(seconds: 3));
+                          setState(() => state = ButtonState.done);
+                          await Future.delayed(Duration(seconds: 3));
+                          setState(() => state = ButtonState.init);
+                        })
+                    : (bool isDone) {
+                        final Color = isDone ? Colors.green : Colors.indigo;
+                        var color;
+                        return Container(
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: color),
+                          child: Center(
+                            child: isDone
+                                ? Icon(Icons.done,
+                                    size: 52, color: Colors.white)
+                                : CircularProgressIndicator(
+                                    color: Colors.white),
+                          ),
+                        );
+                      }(isDone))));
+
+    // ignore: dead_code
+    Widget buildButton() => OutlinedButton(
+        style: OutlinedButton.styleFrom(
+            shape: const StadiumBorder(),
+            side: const BorderSide(width: 2, color: Colors.indigo)),
+        child: FittedBox(
+          // ignore: prefer_const_constructors
+          child: Text(
+            'SUBMIT',
+            style: TextStyle(
+                fontSize: 24,
+                color: Colors.indigo,
+                letterSpacing: 1.5,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+        onPressed: () async {
+          setState(() => state = ButtonState.loading);
+          await Future.delayed(Duration(seconds: 2));
+          setState(() => state = ButtonState.done);
+          await Future.delayed(Duration(seconds: 2));
+          setState(() => state = ButtonState.init);
+        });
+    Widget buildSmallButton(bool isDone) {
+      final Color = isDone ? Colors.green : Colors.indigo;
+      var color;
+      return Container(
+        decoration: BoxDecoration(shape: BoxShape.circle, color: color),
         child: Center(
-            /*child: Column(
+          child: isDone
+              ? Icon(Icons.done, size: 52, color: Colors.white)
+              : CircularProgressIndicator(color: Colors.white),
+        ),
+      );
+    }
+
+    /*child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
@@ -104,9 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),*/
-            ),
-      ),
-    );
+
     /* Listener(
               onPointerDown: (event) => setState(() {
                 isPressed = true;
