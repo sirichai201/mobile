@@ -115,7 +115,7 @@ class NavigationDrawer extends StatelessWidget {
             SizedBox(height: 12),
             Text('sirichai',
                 style: TextStyle(fontSize: 28, color: Colors.black)),
-            Text('Sorrawit.ka@Dev.com',
+            Text('Sirichaia@Dev.com',
                 style: TextStyle(fontSize: 28, color: Colors.white)),
           ],
         ),
