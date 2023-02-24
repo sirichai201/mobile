@@ -38,6 +38,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3 #latest version
   provider: ^6.0.5
+  intl: ^0.17.0
+  sembast: ^3.1.0
+  path_provider: ^2.0.4
+  path: ^1.8.0
 
 dev_dependencies:
   flutter_test:
