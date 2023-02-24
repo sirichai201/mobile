@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
             return ListView.builder(
                 itemCount: provider.transactions.length,
                 itemBuilder: (context, int index) {
-                  Transaction data = provider.transactions[index];
+                  Transactions data = provider.transactions[index];
                   return Card(
                     elevation: 5,
                     margin:

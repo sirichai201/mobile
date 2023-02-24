@@ -25,7 +25,7 @@ class TransactionDB {
     return db;
   }
 
-  Future<int> insertData(Transaction statement) async {
+  Future<int> insertData(Transactions statement) async {
     //ฐานข้อมูล => Store
     // transactions.db => expense
     var db = await this.openDatabase();
