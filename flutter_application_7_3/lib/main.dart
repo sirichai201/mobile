@@ -1,5 +1,6 @@
 // ignore: unused_import
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+// ignore_for_file: override_on_non_overriding_member
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_7/favorites_page.dart';
 import 'package:flutter_application_7/model/transaction.dart';
