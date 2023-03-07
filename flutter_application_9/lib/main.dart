@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9/screen/FromScreen.dart';
+import 'package:flutter_application_9/screen/display.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,19 +39,19 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: TabBarView(children: [
           FormScreen(),
-          Container(),
+          DisplayScreen(),
         ]),
-        backgroundColor: Colors.greenAccent,
         bottomNavigationBar: TabBar(
           tabs: [
             Tab(
-              text: "บันทึกคะแนน",
+              text: "บันทึกอุณหภูมิ",
             ),
             Tab(
               text: "รายชื่อนักเรียน",
             )
           ],
         ),
+        backgroundColor: Color.fromARGB(255, 130, 105, 240),
       ),
     );
   }
