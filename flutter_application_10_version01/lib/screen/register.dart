@@ -36,6 +36,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
             return Scaffold(
               appBar: AppBar(
                 title: Text("สร้างบัญชีผู้ใช้"),
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ));
+                  },
+                ),
               ),
               body: Container(
                 child: Padding(
@@ -88,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       Fluttertoast.showToast(
                                           msg: "สร้างบัญชีผู้ใช้เรียบร้อยแล้ว",
                                           gravity: ToastGravity.TOP);
-                                      Navigator.pushReplacement(context,
+                                      Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
                                         return HomeScreen();
                                       }));

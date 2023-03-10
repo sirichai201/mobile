@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Register/Login"),
+        title: Text("Register & Login with Firebase"),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
