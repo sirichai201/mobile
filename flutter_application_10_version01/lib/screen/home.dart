@@ -18,13 +18,12 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  icon: Icon(Icons.add),
-                  label:
-                      Text("สร้างบัญชีผู้ใช้", style: TextStyle(fontSize: 20)),
+                  icon: Icon(Icons.login),
+                  label: Text("เข้าสู่ระบบ", style: TextStyle(fontSize: 20)),
                   onPressed: () {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) {
-                      return RegisterScreen();
+                      return LoginScreen();
                     }));
                   },
                 ),
@@ -32,12 +31,13 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  icon: Icon(Icons.login),
-                  label: Text("เข้าสู่ระบบ", style: TextStyle(fontSize: 20)),
+                  icon: Icon(Icons.add),
+                  label:
+                      Text("สร้างบัญชีผู้ใช้", style: TextStyle(fontSize: 20)),
                   onPressed: () {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) {
-                      return LoginScreen();
+                      return RegisterScreen();
                     }));
                   },
                 ),
