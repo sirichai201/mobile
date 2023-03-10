@@ -59,8 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Text("อีเมล", style: TextStyle(fontSize: 20)),
                           TextFormField(
                             validator: MultiValidator([
-                              RequiredValidator(
-                                  errorText: "กรุณาป้อนอีเมลด้วยครับ"),
+                              RequiredValidator(errorText: "กรุณาป้อนอีเมล"),
                               EmailValidator(errorText: "รูปแบบอีเมลไม่ถูกต้อง")
                             ]),
                             keyboardType: TextInputType.emailAddress,
@@ -74,7 +73,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Text("รหัสผ่าน", style: TextStyle(fontSize: 20)),
                           TextFormField(
                             validator: RequiredValidator(
-                                errorText: "กรุณาป้อนรหัสผ่านด้วยครับ"),
+                                errorText: "กรุณาป้อนรหัสผ่าน"),
                             obscureText: true,
                             onSaved: (String password) {
                               profile.password = password;
@@ -108,7 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     String message;
                                     if (e.code == 'email-already-in-use') {
                                       message =
-                                          "มีอีเมลนี้ในระบบแล้วครับ โปรดใช้อีเมลอื่นแทน";
+                                          "มีอีเมลนี้ในระบบแล้ว โปรดใช้อีเมลอื่นแทน";
                                     } else if (e.code == 'weak-password') {
                                       message =
                                           "รหัสผ่านต้องมีความยาว 6 ตัวอักษรขึ้นไป";
